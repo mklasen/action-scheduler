@@ -323,7 +323,7 @@ abstract class ActionScheduler_Abstract_QueueRunner extends ActionScheduler_Abst
 
 		if ( ! $memory_limit || -1 === $memory_limit || '-1' === $memory_limit ) {
 			// Unlimited, set to 32GB.
-			$memory_limit = '32G';
+			$memory_limit = apply_filters( 'action_scheduler_memory_limit', '32G' );
 		}
 
 		return ActionScheduler_Compatibility::convert_hr_to_bytes( $memory_limit );
